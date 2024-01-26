@@ -1,10 +1,15 @@
 // const addTwo = (n: number) => n + 2;
 
-const NameBadge = (props: { name: string }) => {
+type NameBadgeProps = {
+  name: string
+  greeting?: string
+}
+
+const NameBadge = (props: NameBadgeProps) => {
   return (
     <section className="badge">
       <header className="badge-header">
-        <h1 className="text-5xl">HELLO</h1>
+        <h1 className="text-5xl">{props.greeting ?? 'hello'}</h1>
         <p>My name is…</p>
       </header>
       <div className="badge-body">
