@@ -1,10 +1,16 @@
-// import ControlPanel from './controls';
-import NameBadge from './name-badge';
+import { useState } from 'react'
+import ControlPanel from './controls'
+import NameBadge from './name-badge'
 
-const Application = () => (
-  <main className="application">
-    <NameBadge />
-  </main>
-);
+const Application = () => {
+  const [name, setName] = useState('')
 
-export default Application;
+  return (
+    <main className="application">
+      <ControlPanel {...{ name }} onChange={(e) => setName(e.target.value)} />
+      <NameBadge name={name} />
+    </main>
+  )
+}
+
+export default Application
